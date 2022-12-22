@@ -16,3 +16,11 @@ export const addBlog = createAsyncThunk(
         return data
     }
 )
+
+export const deleteBlog = createAsyncThunk(
+    'blogs/deleteBlog',
+    async (data) => {
+        const res = await customAxios.delete(`blogs/${data}`);
+        return data
+    }
+)

@@ -8,41 +8,23 @@ export default function ListBlog() {
     const blogs = useSelector(state => {
         return state.blogs.blogs;
     })
-    const user = useSelector(state => {
-        return state.user.user
-    })
+
     useEffect(() => {
         dispatch(getBlogs());
     }, [])
     return (
         <div className={'row'}>
             <div className="col-12">
-                <table className="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Content</th>
-                        <th scope="col">Username</th>
-                    </tr>
-                    </thead>
-                    <tbody>
                     {
-                        blogs.map((item, index) => {
-                            if (item.user.username == user.username)
+                        blogs.map((item, ) => {
                                 return (
                                     <tr>
-                                        <th scope="row">{index + 1}</th>
-                                        <td>{item.title}</td>
-                                        <td>{item.content}</td>
-                                        <td>{item.user.username}</td>
-                                    </tr>
-                                )
-                            else return (<></>)
+                                        <hr/>
+                                        <h3 style={{color:'yellow',position:"absolute"}} className={"text"}>{item.title}</h3>
+                                        <img src={item.image} style={{width:300,height:300,objectFit:'cover'}}/><hr/>
+                                    </tr>)
                         })
                     }
-                    </tbody>
-                </table>
             </div>
         </div>
     )
